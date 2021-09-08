@@ -1,0 +1,7 @@
+<ul>
+  <% @customers.each do |customer| %>
+  <li>
+    <%= render 'customer', customer_data: customer %>
+  </li> 
+  <% end %>
+</ul>
