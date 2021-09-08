@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
 
+  # all the 7 restful routes for meals
+  resources :meals, only: [:index, :show]
+
   # see all customers
   get 'customers', to: 'customers#index'
   # show the form to create new customer
