@@ -1,5 +1,7 @@
-<div class="card" style="border: 1px solid blue;">
-  <h3><%= customer_data.name %></h3>
+<div class="card">
+  <h3>
+    <%= link_to customer_data.name, customer_path(customer_data)  %>
+  </h3>
   <p>
     <%= customer_data.address %>
   </p>

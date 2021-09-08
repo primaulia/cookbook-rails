@@ -1,0 +1,12 @@
+<h1>Register new customer</h1>
+
+<%= form_for(@new_customer) do |f| %>
+  <%= f.text_field :name, placeholder: 'Type your name here' %>
+  <%= f.text_field :address, placeholder: 'Where are you?' %>
+  <%= f.submit %>
+<% end %>
+  
+
+
+<%# <form action="/create/customers" method="post"> %>
+<%# </form> %>
