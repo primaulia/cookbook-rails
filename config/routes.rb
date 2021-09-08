@@ -11,9 +11,11 @@ Rails.application.routes.draw do
 
   # show the edit form
   get 'customers/:id/edit', to: 'customers#edit', as: :edit_customer
-  patch 'customers/:id', to: 'customer#update', as: :update_customer
-
   # process the form
+  patch 'customers/:id', to: 'customers#update', as: :update_customer
+
+  delete 'customers/:id', to: 'customers#destroy', as: :delete_customer
+
 
   # process the form
   post 'customers', to: 'customers#create', as: :create_customer

@@ -1,1 +1,8 @@
 <%= render 'customer', customer_data: @customer %>
+
+<%= link_to 'Edit this customer', edit_customer_path(@customer)  %>
+<%= link_to "Delete #{@customer.name}",
+            delete_customer_path(@customer),
+            method: :delete,
+            data: { confirm: "Are you sure?" }
+%>

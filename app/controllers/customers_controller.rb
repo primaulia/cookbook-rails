@@ -13,13 +13,28 @@ class CustomersController < ApplicationController
     # pass something to the view
   end
 
+  def edit
+    # find the existing customer
+    @edited_customer = Customer.find(params[:id])
+    # pass it to the view
+  end
+
+  def update
+    edited_customer = Customer.find(params[:id])
+    edited_customer.update(customer_params)
+
+    if edited_customer
+      redirect_to customers_path
+    end
+  end
+
   def create
     new_customer = Customer.new(customer_params)
 
     if new_customer.save
       redirect_to root_path
     else
-      
+      # where will this go?
     end
 
     # raise
@@ -28,6 +43,13 @@ class CustomersController < ApplicationController
     # create new instance of customer
     # save it
     # redirected to another route
+  end
+
+  def destroy
+    deleted_customer = Customer.find(params[:id])
+    deleted_customer.destroy
+
+    redirect_to customers_path
   end
 
   private
