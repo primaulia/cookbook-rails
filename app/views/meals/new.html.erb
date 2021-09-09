@@ -1,0 +1,8 @@
+<h1>Create your new meal</h1>
+
+<%= simple_form_for(@meal) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.button :submit, class: 'btn btn-primary btn-block' %>    
+<% end %>
+  

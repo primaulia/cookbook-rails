@@ -3,7 +3,30 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # all the 7 restful routes for meals
-  resources :meals, only: [:index, :show]
+  resources :meals, only: [:index, :show, :new, :create]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   # see all customers
   get 'customers', to: 'customers#index'

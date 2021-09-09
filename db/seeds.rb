@@ -11,7 +11,7 @@ puts "Create new meal instance 🍔"
 
 client = Pexels::Client.new('563492ad6f91700001000001cf6df97e9ebf44408945ba9598a8eb08')
 
-5.times do
+9.times do
   meal_name = Faker::Food.dish
   puts "Creating #{meal_name}"
   client.videos.search(meal_name, per_page: 1).each do |video|

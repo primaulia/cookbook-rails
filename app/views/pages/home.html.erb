@@ -3,15 +3,19 @@
   <%= link_to 'See my customers', customers_path, class: 'btn btn-primary btn-block' %>
 </div>
 
+<%= link_to 'Create new meal', new_meal_path, class: 'btn btn-success btn-block btn-lg' %>
+
 
 <div class="row">
   <% @meals.each do |meal| %>
     <div class="col-4">
       <div class="card my-3">
-        <video src="<%= meal.video_url %>" autoplay></video>
+        <video height="320">
+          <source src="<%= meal.video_url %>" type="video/mp4">
+        </video>
         <div class="card-body">
           <h5 class="card-title"><%= meal.name %></h5>
-          <a href="#" class="btn btn-primary">Show</a>
+          <a href="#" class="btn btn-primary btn-block">Show</a>
         </div>
       </div>
     </div>    
