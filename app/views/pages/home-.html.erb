@@ -1,0 +1,13 @@
+<div class="jumbotron mt-3">
+  <h1 class="display-4 text-center mb-3">Welcome to my cookbook</h1>
+  <%= link_to 'See my customers', customers_path, class: 'btn btn-primary btn-block' %>
+</div>
+
+<%= link_to 'Create new meal', new_meal_path, class: 'btn btn-success btn-block btn-lg' %>
+<%= link_to 'Healthy options~', healthy_meals_path, class: 'btn btn-info btn-block btn-lg'  %>
+
+<div class="row">
+  <%# @meals = [#Meal1, #Meal2, #Meal3] %>
+  <%= render @meals %>
+</div>
+
