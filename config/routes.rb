@@ -7,7 +7,13 @@ Rails.application.routes.draw do
     collection do
       get :healthy
     end
+
+    resources :comments, only: [:new, :create]
   end
+
+
+
+
 
 
 

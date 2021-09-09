@@ -1,0 +1,4 @@
+<%= simple_form_for [@meal, @new_comment] do |f| %>
+  <%= f.input :content %> 
+  <%= f.button :submit, class: 'btn btn-block btn-primary' %>
+<% end %>

@@ -6,6 +6,7 @@
     <div class="card-body">
       <h5 class="card-title"><%= meal.name %></h5>
       <a href="#" class="btn btn-primary btn-block">Show</a>
+      <%= link_to 'Comment', new_meal_comment_path(meal), class: 'btn btn-secondary btn-block' %>
     </div>
   </div>
 </div>  
