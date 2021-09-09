@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pets/create'
+  get 'salons/show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
 
@@ -10,6 +12,12 @@ Rails.application.routes.draw do
 
     resources :comments, only: [:new, :create]
   end
+
+  # get /salons/:id
+  resources :salons, only: [:show] do
+    resources :pets, only: [:create]
+  end
+
 
 
 

@@ -3,26 +3,25 @@ require 'json'
 
 puts "Clear db 🗑"
 
-Meal.destroy_all
+Salon.destroy_all
+Category.destroy_all
 
-puts "All meals destroyed"
+puts "Creating 1 salon 💅"
+Salon.create!(
+  name: 'Prima Salon 🐶'
+)
 
-puts "Create new meal instance 🍔"
+url = "https://dog.ceo/api/breeds/list/all"
 
-client = Pexels::Client.new('563492ad6f91700001000001cf6df97e9ebf44408945ba9598a8eb08')
+raw_json = open(url).read
+parsed_json = JSON.parse(raw_json)
 
-9.times do
-  meal_name = Faker::Food.dish
-  puts "Creating #{meal_name}"
-  client.videos.search(meal_name, per_page: 1).each do |video|
-    Meal.create!(
-      name: meal_name,
-      price: rand(1..100),
-      video_url: video.files.first.link,
-      image_url: video.image,
-      calories: [50, 100].sample
-    )
-  end
+categories_list = parsed_json["message"].keys.first(5)
+
+puts "Create multiple categories"
+categories_list.each do |name|
+  puts "Creating #{name}"
+  Category.create!(name: name)
 end
 
-puts "Seeds done ⭐️"
+puts "Done"
