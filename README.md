@@ -1,6 +1,6 @@
 
 <!-- TODO -->
-5. Setup the routes
+5. Setup the routes ✅
 1. Model the pets and salons
 2. Setup the migration
 3. Seed the DB
