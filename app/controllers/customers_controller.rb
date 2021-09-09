@@ -1,10 +1,11 @@
 class CustomersController < ApplicationController
+  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+
   def index
     @customers = Customer.all
   end
 
   def show
-    @customer = Customer.find(params[:id])
   end
 
   def new
@@ -14,17 +15,14 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    # find the existing customer
-    @edited_customer = Customer.find(params[:id])
-    # pass it to the view
   end
 
   def update
-    edited_customer = Customer.find(params[:id])
-    edited_customer.update(customer_params)
-
-    if edited_customer
+    # normal
+    if @customer.update(customer_params)
       redirect_to customers_path
+    else
+      render :edit
     end
   end
 
@@ -46,20 +44,19 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    deleted_customer = Customer.find(params[:id])
-    deleted_customer.destroy
-
+    @customer.destroy
     redirect_to customers_path
   end
 
   private
 
+  def set_customer
+    @customer = Customer.find(params[:id])
+  end
+
   def customer_params
     params.require(:customer).permit(:name, :address)
   end
-
-
-
 end
 
 # {
