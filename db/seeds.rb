@@ -19,7 +19,8 @@ client = Pexels::Client.new('563492ad6f91700001000001cf6df97e9ebf44408945ba9598a
       name: meal_name,
       price: rand(1..100),
       video_url: video.files.first.link,
-      image_url: video.image
+      image_url: video.image,
+      calories: [50, 100].sample
     )
   end
 end
