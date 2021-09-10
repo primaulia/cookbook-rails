@@ -18,6 +18,7 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name)
+    # UPDATE: by permitting category_ids to accept array values, you can simplify the creation of pets AND pet_categories 
+    params.require(:pet).permit(:name, category_ids:[])
   end
 end

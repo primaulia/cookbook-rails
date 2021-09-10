@@ -16,3 +16,9 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import 'bootstrap';
+
+import { initTypedjs } from '../components/typed';
+
+
+// check if the element that i'm targeting exist
+initTypedjs();
