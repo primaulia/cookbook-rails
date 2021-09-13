@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_09_09_100053) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_09_09_100053) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "meal_id"
+    t.bigint "meal_id"
     t.index ["meal_id"], name: "index_comments_on_meal_id"
   end
 
@@ -47,8 +50,8 @@ ActiveRecord::Schema.define(version: 2021_09_09_100053) do
   end
 
   create_table "pet_categories", force: :cascade do |t|
-    t.integer "pet_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "pet_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_pet_categories_on_category_id"
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_09_09_100053) do
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
-    t.integer "salon_id"
+    t.bigint "salon_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["salon_id"], name: "index_pets_on_salon_id"
