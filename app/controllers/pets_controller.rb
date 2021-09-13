@@ -15,10 +15,14 @@ class PetsController < ApplicationController
     end    
   end
 
+  def show
+    @pet = Pet.find(params[:id])
+  end
+
   private
 
   def pet_params
     # UPDATE: by permitting category_ids to accept array values, you can simplify the creation of pets AND pet_categories 
-    params.require(:pet).permit(:name, category_ids:[])
+    params.require(:pet).permit(:name, :avatar, category_ids:[])
   end
 end

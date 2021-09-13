@@ -1,5 +1,5 @@
 <%# Banner %>
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+<!--div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
         <img src="https://source.unsplash.com/900x300/?dog,akita" class="d-block w-100" alt="https://source.unsplash.com/900x300/?dog">
@@ -11,7 +11,7 @@
       <img src="https://source.unsplash.com/900x300/?dog,bulldog" class="d-block w-100" alt="https://source.unsplash.com/900x300/?dog">
     </div>
   </div>
-</div>
+</div-->
 
 <!--div class="banner">
   <div class="container">
@@ -26,6 +26,7 @@
     <%= f.input :name %>
     <%# We need to make sure that the model has been setup properly first %>
     <%= f.association :categories, as: :check_boxes, label: "Pick the breeds" %>
+    <%= f.input :avatar, as: :file %>
     <%= f.button :submit, class: 'btn btn-block btn-primary' %>
   <% end %>
   
