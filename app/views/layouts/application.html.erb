@@ -14,9 +14,8 @@
 
   <body>
     <!-- As a link -->
-    <nav class="navbar navbar-light bg-light">
-      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-    </nav>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
     
     <%= yield %>
   </body>
