@@ -3,25 +3,35 @@ require 'json'
 
 puts "Clear db 🗑"
 
-Salon.destroy_all
-Category.destroy_all
+Pet.destroy_all
 
-puts "Creating 1 salon 💅"
-Salon.create!(
-  name: 'Prima Salon 🐶'
+miguel = User.find_by_username('libsyz')
+prima = User.find_by_username('primaulia')
+
+puts "Created pets for miguel"
+
+Pet.create(
+  name: 'pripri',
+  user: miguel,
+  salon: Salon.first
 )
 
-url = "https://dog.ceo/api/breeds/list/all"
+Pet.create(
+  name: 'propro',
+  user: miguel,
+  salon: Salon.first
+)
 
-raw_json = open(url).read
-parsed_json = JSON.parse(raw_json)
+puts "Created pets for prima"
 
-categories_list = parsed_json["message"].keys.first(5)
+Pet.create(
+  name: 'miguelito',
+  user: prima,
+  salon: Salon.first
+)
 
-puts "Create multiple categories"
-categories_list.each do |name|
-  puts "Creating #{name}"
-  Category.create!(name: name)
-end
-
-puts "Done"
+Pet.create(
+  name: 'miguelita',
+  user: prima,
+  salon: Salon.first
+)
