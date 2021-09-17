@@ -3,7 +3,7 @@ class PetsController < ApplicationController
     # get all pets that's belong to the current_user
     # miguel ==> current_user
 
-    @pets = policy_scope(Pet)
+    @pets = Pet.where(user: current_user)
   end
   
   def create
@@ -26,18 +26,18 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     @other_pets = Pet.where.not(user: current_user)
     # if the current_user is the pet owner ==> go ahead
-    authorize @pet
+    # authorize @pet
   end
 
   def edit
     @pet = Pet.find(params[:id])
-    authorize @pet
+    # authorize @pet
   end
 
   def update
     @pet = Pet.find(params[:id])
     @pet.user = current_user
-    authorize @pet
+    # authorize @pet
     if @pet.update(pet_params)
       redirect_to @pet
     end

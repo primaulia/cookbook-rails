@@ -1,3 +1,3 @@
 class Salon < ApplicationRecord
-  has_many :pets, dependent: :destroy
+  has_many :salon_services, dependent: :destroy
 end

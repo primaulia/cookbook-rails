@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_15_011227) do
+ActiveRecord::Schema.define(version: 2021_09_17_015355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 2021_09_15_011227) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "salon_service_id", null: false
+    t.bigint "pet_id", null: false
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_appointments_on_pet_id"
+    t.index ["salon_service_id"], name: "index_appointments_on_salon_service_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -81,12 +91,20 @@ ActiveRecord::Schema.define(version: 2021_09_15_011227) do
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
-    t.bigint "salon_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.index ["salon_id"], name: "index_pets_on_salon_id"
     t.index ["user_id"], name: "index_pets_on_user_id"
+  end
+
+  create_table "salon_services", force: :cascade do |t|
+    t.string "name"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
+    t.bigint "salon_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["salon_id"], name: "index_salon_services_on_salon_id"
   end
 
   create_table "salons", force: :cascade do |t|
@@ -109,9 +127,11 @@ ActiveRecord::Schema.define(version: 2021_09_15_011227) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "appointments", "pets"
+  add_foreign_key "appointments", "salon_services"
   add_foreign_key "comments", "meals"
   add_foreign_key "pet_categories", "categories"
   add_foreign_key "pet_categories", "pets"
-  add_foreign_key "pets", "salons"
   add_foreign_key "pets", "users"
+  add_foreign_key "salon_services", "salons"
 end

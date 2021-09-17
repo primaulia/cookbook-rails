@@ -1,0 +1,13 @@
+<div class="col-4">
+  <div class="card-service">
+    <img src="https://source.unsplash.com/350x200/?<%=salon_service.name%>,pet" />
+    <div class="card-service-infos">
+      <div>
+        <h2><%= salon_service.name %></h2>
+        <p>Short description here!</p>
+      </div>
+      <h2 class="card-service-pricing"><%= humanized_money_with_symbol(salon_service.price) %></h2>
+    </div>
+    <%= link_to 'Book appointment', root_path, class: 'btn btn-primary btn-block' %>
+  </div>
+</div>

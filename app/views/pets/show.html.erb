@@ -7,9 +7,9 @@
     <%= image_tag "https://outwardhound.com/furtropolis/wp-content/uploads/2020/03/Doggo-Lingo-Post.jpg", height: 300, class: "w-100" %>
   <% end %>
 
-  <% if policy(@pet).update? %>  
-    <%= link_to 'Edit this pet', edit_pet_path(@pet), class: 'btn btn-info btn-block' %>
-  <% end %>
+  <%# if policy(@pet).update? %>  
+  <%# end %>
+  <%= link_to 'Edit this pet', edit_pet_path(@pet), class: 'btn btn-info btn-block' %>
 
   <h2 class="my-3">Other pets</h2>
   <div class="row">
