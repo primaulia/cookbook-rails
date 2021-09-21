@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Create new appointment for: <%= @salon_service.name %></h1>
+  
+  <%= simple_form_for [@salon_service, @appointment] do |f| %>
+    <%= f.input :date, html5: true %>
+    <%= f.association :pet, collection: current_user.pets %>   
+    <%= f.button :submit, class: 'btn btn-info btn-block' %> 
+  <% end %>
+  
+</div>

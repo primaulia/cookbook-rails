@@ -8,6 +8,6 @@
       </div>
       <h2 class="card-service-pricing"><%= humanized_money_with_symbol(salon_service.price) %></h2>
     </div>
-    <%= link_to 'Book appointment', root_path, class: 'btn btn-primary btn-block' %>
+    <%= link_to 'Book appointment', new_salon_service_appointment_path(salon_service), class: 'btn btn-primary btn-block' %>
   </div>
 </div>
